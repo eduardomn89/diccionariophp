@@ -1,0 +1,23 @@
+<div class="modal" id="del-modal">
+	
+	<form action="" method="post" id="del-form" class="del-form">
+		
+		<h1 class="header-form">
+			Eliminar funcion
+		</h1>
+	    <div class="body-form">
+
+		   <p>
+		   	¿Esta seguro que desea borrar la funcion {{functionName}}?
+		   </p>
+		
+		</div>
+		
+		<div class="footer-form">
+			<input type="submit" name="delFunctionBtn" id="del-functionBtn" class="btn del-functionBtn" value="Eliminar" (click)='del_one()'>
+			<input type="button" name="closeBtn" id="close-formBtn" class="btn close-formBtn" value="Cerrar" (click)="close_form()"> 
+		</div>
+
+	</form>
+
+</div>

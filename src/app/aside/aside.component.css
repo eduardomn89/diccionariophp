@@ -1,0 +1,25 @@
+.index-title{
+	padding: 10px 20px;
+}
+.alphabet-wrap{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.alphabet-item{
+	margin-top: 5px;	
+}
+	
+.alphabet-btn{
+	border: solid 1px skyblue;
+	border-radius: 3px;
+	background-color: skyblue;
+	width: 80px;
+	color: black;
+	font-weight: bold;
+	padding: 5%;
+}
+.alphabet-btn:hover{
+	width: 100px; 
+}

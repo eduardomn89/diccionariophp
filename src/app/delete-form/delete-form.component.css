@@ -1,0 +1,52 @@
+.del-form{
+	background: white;
+	border: solid 1px #BEBEBF;
+	border-radius: 10px 0px 10px 10px;
+	margin: 0px auto;
+	padding: 0px;
+	width: 500px;
+	height: auto;
+}
+.header-form{
+	background: #5C6AD8;
+	color: white;
+	margin: 0px;
+	padding: 5px;
+}
+.body-form{
+	box-sizing: border-box;
+	color: #272822;
+	margin-bottom: 10px;
+	padding: 15px 15px 5px 15px;
+	width: 100%;
+}
+.control-wrap{
+	display: flex;
+	margin-bottom: 10px;
+}
+.control-wrap label{
+	flex-basis: 40%;
+}
+.control-wrap input{
+	flex-basis: 60%;
+}
+.control-wrapTextArea{
+
+}
+.control-wrapTextArea label{
+
+}
+.control-wrapTextArea textarea{
+	box-sizing: border-box;
+	width: 100%;	
+}
+.footer-form{
+	display: flex;
+	padding: 5px 15px 15px 15px;	
+}
+.del-functionBtn{
+	background: #1AA15F;
+}
+.close-formBtn{
+	background: #DD4F42; 
+}

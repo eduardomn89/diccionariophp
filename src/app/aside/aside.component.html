@@ -1,0 +1,11 @@
+ <h2 class="index-title">Indice<h2>
+
+<ul class="alphabet-wrap">
+
+	<li class="alphabet-item" *ngFor="let letra of alphabet">
+
+			<button class="btn alphabet-btn" value="" (click)="search_txt(letra.letra)">{{letra.valor}}</button>
+
+	</li>
+
+</ul>

@@ -1,0 +1,25 @@
+<form action="" method="post" id="add-form" class="form add-form">
+	
+	<h1 class="header-form">
+		Registrar funcion
+	</h1>
+    <div class="body-form">
+
+	    <div class="control-group">
+	    	<label for="function-name">Nombre de la funcion:</label>
+	    	<input type="text" name="functionName" id="function-name" class="function-name" value="" [(ngModel)]='functionName'>
+		</div>
+	
+		<div class="control-group"> 
+			<label for="description">Descripcion de la funcion:</label>
+			<textarea cols="50" rows="10" name="description" id="description" [(ngModel)]='description'></textarea>
+		</div>
+	
+	</div>
+	
+	<div class="footer-form">
+		<input type="submit" name="addFunctionBtn" id="add-functionBtn" class="btn add-functionBtn" value="Registrar" (click)='add_one()'>
+		<input type="button" name="closeBtn" id="close-formBtn" class="btn close-formBtn" value="Cerrar" (click)="close_form()"> 
+	</div>
+
+</form>

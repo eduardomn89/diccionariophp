@@ -1,0 +1,348 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+/* CSS Document */
+
+html, body{
+	background-color: white;
+	box-sizing: border-box;
+	color: skyblue;
+	font-size: 12pt;
+	font-family: 'Work Sans', sans-serif;
+	margin: 0px;
+	position: absolute;
+	padding: 0px;
+	width: 100%;
+	height: auto;
+}
+
+a{
+	text-decoration:none;
+}
+h1,h2,h3{
+	margin: 0px;
+}
+
+.main-container{
+	background: white;
+	box-sizing: border-box;
+	margin:0px;
+	width:100%;
+	height:auto;
+	min-height: 100vh;
+	overflow: auto;
+	position: static; 
+}
+
+.container{
+	width: 100%;
+	display: flex;
+}
+
+.index-wrap{
+	border: solid 1px #BEBEBF;  
+	flex-basis: 15%;
+} 
+
+.content-wrap{
+	flex-basis: 85%;
+	padding: 20px;
+}
+
+.app-preloaderWrap{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.page-title{
+	color: #4B8BF4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 200%;
+	margin-bottom: 20px;
+	width: 100%;
+	height: auto;
+}
+
+@media (max-width:960px){
+	.head-page{
+		display: block;
+		height: auto;
+	}
+	.img-headPage{
+		width: 100px;
+		height: 110px;
+	}
+	.head-pageGroup{
+	}
+}
+@media (max-width:670px){
+	.img-headPage{
+		margin: 0px auto;
+	}
+	.head-pageGroup{
+		display: block;
+		margin-top: 20px; 
+	}	
+	.head-pageSearchForm{
+		margin: 0px auto;
+
+	}
+}
+
+.ajaxMsgPage{
+	width: 90%;
+	margin: 10px auto;
+	box-sizing: border-box;
+}
+
+/*tablas*/
+.table-container{
+	width: 90%;
+	height: auto;
+	margin: 0px auto;
+}
+table{
+	width: 100%;
+  background-color: transparent;
+  border-spacing: 0;
+}
+table .thIzq{
+	border: 1px solid #BCBCBC;
+	border-top-left-radius:5px;
+}
+table .thDer{
+	border-top-right-radius:5px;
+}
+table th{
+	background-color:#8CE4F7;
+	color:#536DB1;
+	border:none;
+	height:30px;
+	border: 1px solid #BCBCBC;
+	border-left:0;
+}
+table td{
+	border-left:solid 1px #BCBCBC;
+	border-bottom:solid 1px #BCBCBC;
+}
+table .tdDer{
+	border-right:solid 1px #BCBCBC;
+}
+.update-btn, .status-btn, .del-btn{
+	border: none;
+	border-radius: 5px; 
+	color: white;
+	cursor: pointer;
+	margin: 5px auto;
+	width: 35px;
+	height: 35px;
+}
+.update-btn{
+	background: #4A8AF4;
+}
+.status-activeBtn{
+	background: #17A05D;
+}
+.status-inactiveBtn{
+	background: #DD5044;
+}
+.del-btn{
+	background: #DD5044;
+}
+.btn{
+	background: grey;
+	border: solid 1px white;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align:center;
+	padding: 2px;
+	width: auto;
+	height: 30px;
+}
+.btn:hover{
+	opacity: 0.5;
+}
+.botonActivo, .botonInactivo{
+	background-color:#397E36;
+}
+.botonInactivo{
+	background-color:#CF3134;
+}
+
+
+/*modal*/
+.modal{
+	background-color:rgba(0,0,0,0.8);
+	border: solid 1px black;
+	box-sizing: border-box;
+	display: none;
+	left:0%;
+	top:0%;
+	overflow: auto;
+	padding: 10px;
+	position: absolute;
+	transition: all 1s;
+	width: 100vw;
+	height: 100vh;
+}
+.form{
+	background-color: #F9F9FA;
+	border-radius: 5px;
+	margin: 50px auto;
+	width:50%;
+	min-width:550px;
+	height:auto;
+}
+.header-form{
+	border: solid 1px #509AD0; 
+	background-color:#509AD0;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 5px;
+	box-sizing: border-box;
+	color: white;
+	font-size: 150%;
+	font-weight: bold;
+	margin: 0px;
+	padding: 10px;
+	width: 100%;
+	height: auto;
+}
+.ajax-msgForm{
+	height: 30px;
+}
+.body-form{
+	box-sizing: border-box;
+	color: #272822;
+	margin-bottom: 10px;
+	padding: 15px 15px 5px 15px;
+	width: 100%;
+}
+.controls-wrap{
+	display: flex;
+	padding: 0px 10px;
+}
+.control-group{
+	flex-basis: 50%;
+	padding: 10px;
+}
+.control-group label, 
+.control-group input,
+.control-group select, 
+.control-group textarea{
+	display: block;
+	height: 35px;
+	margin: 0px;
+	width: 100%;
+	margin: 0px;
+}
+.control-group label{
+	display: flex;
+	align-items: center;
+}
+.control-group input,
+.control-group select, 
+.control-group textarea{
+	border: solid 1px #DDDDDF;
+	margin-bottom: 20px;
+}
+.control-group textarea{
+	height: 300px;
+}
+.footer-form{
+	display: flex;
+	padding: 5px 15px 15px 15px;	
+	box-sizing: border-box;
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	text-align: right;
+}
+.action-formBtn, .close-modalBtn{
+	background-color:#2D65D5;
+	border: white;
+	color:white;
+	cursor:pointer;
+	border-radius:5px;
+	width: 150px;
+	min-width:100px;
+	padding:2%;
+}
+.close-modalBtn{
+	background-color: #DD5145;
+}
+.action-formBtn:hover, .close-modalBtn:hover{
+	opacity: 0.8;
+}
+select{
+	cursor: pointer;
+}
+
+/*mensajes*/
+.alert{
+	border: solid 1px grey;
+	border-radius: 5px;
+	box-sizing: border-box;
+	color: grey;
+	margin: 0px auto;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+}
+.alert-success{
+	background-color: #BCF0C9;
+	border: solid 1px #1AA15F;
+	color: #1AA15F;
+}
+.alert-error{
+	background-color: #FFC0CB;
+	border: solid 1px #F8898B;
+	color:#BD2E30;
+}
+.alert-info{
+	background-color: #D4EDFC;
+	border: solid 1px #405C88;
+	color:#405C88;
+}
+.alert-warning{
+	background-color: #FFFFFF;
+	border: solid 1px #57534C;
+	color: #AFA99F;
+}
+#mensajesForm{
+	height:30px;
+	width:90%;
+	margin: 0px auto;
+}
+.contenidoNoPermitido{
+	width:40%;
+	height:200px;
+	margin:5% auto;
+	background-color:white;
+}
+
+.visible{
+	display: block;	
+}
+.hidden{
+	display: none;
+}
+
+/*Estilos generales*/
+.btnGen{
+	padding:2%;
+	background-color:#658AE3;
+	color:black;
+	border-radius:5px;
+}
+.btnGen:hover{
+	background-color:#8DABE0;
+}
+

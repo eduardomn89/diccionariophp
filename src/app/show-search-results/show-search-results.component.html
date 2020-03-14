@@ -1,0 +1,18 @@
+<div class="functions-container" id="functions-container">
+	
+	<!--cargar las funciones-->	
+	
+	<div class="function-wrap" *ngFor="let function of results">
+    
+       	<div class="function-name"><strong>{{function.functionName}}</strong></div>
+       	<div class="description">
+       		<div class="description-wrap" [innerHTML] = "function.description"></div>
+       		<div class="btns-wrap">
+       			<button class="update-btn fas fa-pencil-alt" (click)="open_updateForm(function)"></button>
+       			<button class="del-btn fas fa-trash-alt" (click)="open_deleteForm(function)"></button>
+       		</div>
+       	</div>
+  	
+  	</div>
+
+</div>
