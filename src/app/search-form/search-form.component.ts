@@ -17,6 +17,7 @@ export class SearchFormComponent implements OnInit {
   	public serviceMsg:any = '';
   	public functionsContainer:any = null;
   	public searchResults:SearchResultsData;
+    private searchLoader:any = null; 
 
   	constructor(private searchService:SearchTxtService = null){}
 
@@ -29,12 +30,16 @@ export class SearchFormComponent implements OnInit {
       	app.objects.searchForm = this;
  
         this.serviceMsg = app.getById('service-msg'); 
+
+        this.searchLoader = app.getById('search-loaderWrap');
  
   	}
 
   	search_txt(){
 
       	let data = {search: this.searchTxt};
+
+        app.show(this.searchLoader);
 
       	this.searchService.search_txt(data).subscribe( result => {
                                                 
@@ -48,7 +53,9 @@ export class SearchFormComponent implements OnInit {
                                                       //cargar los resultados en el componente showSearchResults
 
                                                       app.objects.searchResults.results = result.data; 
-  													                         
+  													                           
+                                                      app.hide(this.searchLoader);
+                                                
                                                 }else{
 
                                                   app.innerHTML(this.serviceMsg, app.msg.msg_type(result.status, result.notice));

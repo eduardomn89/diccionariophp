@@ -33,7 +33,11 @@
 	flex-basis: 10%;
 }
 .new-functionBtn{
-	background: #5C6AD8;
+	background: #0A84FF;
+	border:solid 1px #0A84FF;
 	margin: 0px;
 	height: 100%;
+}
+.new-functionBtn:hover{
+	border: solid 1px white;
 }

@@ -270,10 +270,6 @@ app = {
 
 		this.empty(objectName, function(){
 
-			/*let px = app.getById('contenedorPrincipal').scrollHeight;
-
-			objectName.style.height = px+'px';*/
-
 			objectName.style.display = "block";
 		
 		});	

@@ -1,6 +1,9 @@
 <form class="search-form">
 
+	<div class="search-loaderContainer">
+			<div class="search-loaderWrap" id="search-loaderWrap"></div>
+	</div>
 	<input type="search" name="search" class="search-txt" placeholder="Ingrese su busqueda" [(ngModel)]="searchTxt">
-	<button class="btn search-btn" (click)="search_txt()">Buscar</button> 
+	<button class="btn search-btn fas fa-search" (click)="search_txt()"></button> 
 
 </form>
