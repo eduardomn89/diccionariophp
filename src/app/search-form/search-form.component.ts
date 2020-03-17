@@ -16,7 +16,7 @@ export class SearchFormComponent implements OnInit {
   	searchTxt:any = '';
   	serviceMsg:any = '';
   	functionsContainer:any = null;
-  	searchResults:any;
+  	searchResults:SearchResultsData;
 
   	constructor(private searchService:SearchTxtService = null){}
 
@@ -42,7 +42,7 @@ export class SearchFormComponent implements OnInit {
 
                                                   	  app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
 
-                                                      //mostrar cerrar todo y mostrar la portada
+                                                      //cerrar todo y mostrar la portada
                                                       app.switch_view(app.switchViews(), 'functionsContainer');
 
                                                       //cargar los resultados en el componente showSearchResults

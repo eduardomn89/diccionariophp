@@ -15,6 +15,7 @@ import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,4 +37,5 @@ import { DeleteFormComponent } from './delete-form/delete-form.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

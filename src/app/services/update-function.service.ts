@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { FunctionData } from '../interfaces/FunctionData';
+import SettingsHttp from './SettingsHttp';
 
 @Injectable({
   providedIn: 'root'
@@ -9,33 +10,35 @@ import { FunctionData } from '../interfaces/FunctionData';
 
 export class UpdateFunctionService {
 	
-	url = "http://localhost/Angular/Proyectos/backendDiccionarioPhp/modules/phpFunctions/controllers/functions_controller.php";
+    private url:string;
+    private headers:any;
 
- 	constructor(private http:HttpClient){ }
+ 	  constructor(private http:HttpClient){ 
+
+      this.url = SettingsHttp.url;
+      this.headers = SettingsHttp.headers;
+
+    }
 
   	get_data_form(id:number = 0){
 
- 		let json = JSON.stringify({request:'get_data_updateForm',
-        						   data:{id:id}});
+ 		    let json = JSON.stringify({request:'get_data_updateForm',
+        						              data:{id:id}});
 
         json = "json="+json;
-        
-        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
          
-        return this.http.post(this.url, json, {headers: headers}); 		
+        return this.http.post(this.url, json, {headers: this.headers}); 		
 
   	}
 
   	update_function(functionData: FunctionData): Observable<any>{
  
         let json = JSON.stringify({request:'update_data',
-        							data:functionData});
+        							             data:functionData});
 
         json = "json="+json;
-        
-        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
          
-        return this.http.post(this.url, json, {headers: headers});
+        return this.http.post(this.url, json, {headers: this.headers});
  
     }
 

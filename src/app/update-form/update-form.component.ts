@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateFunctionService } from '../services/update-function.service';
+import { SearchResultsData } from '../interfaces/SearchResultsData';
 
 declare var app:any;
 
@@ -27,15 +28,15 @@ export class UpdateFormComponent implements OnInit {
 
   	ngOnInit(){
 
-      this.updateForm = app.getById('update-functionForm'); 
-      app.dom.updateForm = this.updateForm;
-      app.objects.updateForm = this;
+        this.updateForm = app.getById('update-functionForm'); 
+        app.dom.updateForm = this.updateForm;
+        app.objects.updateForm = this;
     
     }
 
     update_one(){
 
-      	let data = {'id':this.functionId,
+      	let data:SearchResultsData = {'id':this.functionId,
       			        'functionName': this.functionName,
                     'description': this.description};
   
@@ -43,10 +44,46 @@ export class UpdateFormComponent implements OnInit {
 
                                                 if(result.status == 'done'){
 
+                                                  app.switch_view(app.switchViews(), 'functionsContainer');
+
+                                                  let newData:Array<SearchResultsData> = [{id:0,
+                                                                                           functionName:'', 
+                                                                                           description:''}];
+                                                  
+                                                  let c:number = 0;//contador para indice de array para funciones
+                                                  
+                                                  app.loop({target:app.objects.searchResults.results, fn: (target) => {
+
+                                                    if(target.id === this.functionId){
+
+                                                    /*si el id de la funcion editada es igual l que se encuentra en 
+                                                    la variable results se modifica los datos editados*/
+
+                                                      newData[c] = {id:this.functionId, 
+                                                                   functionName:this.functionName,
+                                                                    description:this.description};;
+
+                                                    }else{
+
+                                                      //si los id no coinciden se almacena igual
+
+                                                      newData[c] = {id:target.id, 
+                                                                    functionName:target.functionName,
+                                                                    description:target.description};
+                                                    }
+
+                                                    c++;
+
+                                                  }});
+
+                                                  /*colocar los nuevos datos en la variable results para que se muestren  
+                                                  en pantalla lo cambios*/
+
+                                                  app.objects.searchResults.results = newData;
+
+                                                  //limpiar campos de formulario
                                                   this.functionName = '';
                                                   this.description = '';
-
-                                                  app.switch_view(app.switchViews(), 'coverPage');
 
                                                   app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
 
@@ -66,10 +103,16 @@ export class UpdateFormComponent implements OnInit {
 
   	open_form(data:any = ''){
 
+        /*Abrir formulario para editar funcion
+        El parametro data viene de el componente show-search-results.
+        Se pasa en el metodo open_update_form.*/
+
         this.functionNameTitle = data.functionName;
      	  
         this.functionName = data.functionName;
 
+        //Quitar los <br> de la descripcion
+        
         let arrayDesc = data.description.split('<br />');
         
         let description = '';
@@ -84,15 +127,19 @@ export class UpdateFormComponent implements OnInit {
 
        	this.functionId = data.id;
 
+        //ocultar lo que este en pantalla y mostrar el formulario para editar funcion
+
         app.switch_view(app.switchViews(), 'updateFunctionForm');
 
   	}
 
   	close_form(){
 
+      //cerrar formulario para editar funcion 
+
       app.innerHTML(this.serviceMsg, '');
 
-      app.switch_view(app.switchViews(), 'coverPage'); 
+      app.switch_view(app.switchViews(), 'functionsContainer'); 
 
   	}
 

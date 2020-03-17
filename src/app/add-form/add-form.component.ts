@@ -11,13 +11,14 @@ declare var app:any
 
 export class AddFormComponent implements OnInit {
 
-  	addForm = null;
-  	closeFormBtn = null;
-    functionName = '';
-    description = '';
-    serviceMsg = '';
+  	private addForm:any = null;
+  	private closeFormBtn:any = null;
+    private functionName:string = '';
+    private description:string = '';
+    private serviceMsg:any = '';
+    
+  	constructor(private afs:AddFunctionService = null){
 
-  	constructor(private afs:AddFunctionService = null){    
     }
 
   	ngOnInit() {
@@ -58,12 +59,6 @@ export class AddFormComponent implements OnInit {
                                             
                                             });
     
-    }
-
-  	get_add_form(){
-
-  		this.addForm = app.getById('add-form');
-  	
     }
 
   	open_form(){

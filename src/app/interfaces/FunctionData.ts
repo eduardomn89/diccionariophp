@@ -1,14 +1,6 @@
-export class FunctionData{
+export interface FunctionData{
 	
-	public functionName:string = '';
-    public description:string = '';
-    
-
-	constructor(){
-	
-		this.functionName = "";
-		this.description = "";
-
-	}
+	functionName:string;
+    description:string;
 
 }

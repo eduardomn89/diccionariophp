@@ -112,35 +112,30 @@ app = {
 		}
 
 	},
-	clean_form_controls:function(ctrl = '', noCtrl = ''){
+	clean_form_controls:function(ctrl = ''){
 
-		if(ctrl != '' || noCtrl != ''){
+		if(ctrl != ''){
 
-			switch(noCtrl){
+			if(typeof ctrl === 'object'){
 
-				case'one':
+				ctrl.value = '';
 
-					ctrl.value = '';
+				return true;
 
-					return true;
+			}else if(typeof ctrl === 'array'){
 
-				break;
-				case'moreOne':
+				app.loop({target:ctrl, fn:function(d){
 
-					app.loop({target:ctrl, fn:function(d){
+					d.value = '';
 
-						d.value = '';
+				}});
 
-					}});
+				return true;
 
-					return true;
-				
-				break;
-				default:
+			}else{
 
-					return false;
+				return false;
 
-				break;
 			}
 
 		}else{
@@ -153,6 +148,7 @@ app = {
 	load_data_onForm(dataForm = null, data = ''){
 
 		let c = 0 ;
+
 		app.loop({target:dataForm, fn:function(d){
 
 			d.value = data[c];
@@ -390,6 +386,9 @@ app = {
 		}
 	},
 	objects:{
+
+		//contiene algunaos componentes que se necesitan manipular desde otros componetes
+
 		searchResults:null,
 		addForm:null,
 		updateForm:null,
@@ -398,7 +397,10 @@ app = {
 	switch_view(views = null, showView = null){
 
 		app.loop({target:views, fn: view => {
-				
+			
+			/*si el parametro showView es igual a la propiedad name del objeto devuelto por swicthViews
+			se muestra el contenidor del componente solicitado, cuando es diferente la propiedad name oculta todo*/	
+			
 			if( view.name == showView ){
 
 					app.show(view.ref);
@@ -414,12 +416,14 @@ app = {
 	}, 
 	switchViews: function() {
 
+		/*contiene una referencia de los contenedores principales de componentes 
+		que son mostrados en pantalla*/
+		
 		return [{name:'coverPage', ref:app.dom.coverPage},
 				{name:'addForm', ref:app.dom.addForm},
 				{name:'functionsContainer', ref:app.dom.functionsContainer},
 				{name:'updateFunctionForm', ref:app.dom.updateForm},
-				{name:'delModal', ref:app.dom.delModal}
-				];
+				{name:'delModal', ref:app.dom.delModal}];
 
 	}
 

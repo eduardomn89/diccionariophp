@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-
+import  SettingsHttp  from './SettingsHttp';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,18 @@ import { Observable, of } from 'rxjs';
 
 
 export class SearchTxtService {
-
-
-	   url = "http://localhost/Angular/Proyectos/backendDiccionarioPhp/modules/phpFunctions/controllers/functions_controller.php";
+    
+    private url:string;
+    private headers:any;
   
-  	 results:any;
+  	private results:any;
 
- 	   constructor(public http:HttpClient){ }
+ 	  constructor(public http:HttpClient){ 
+
+       this.url = SettingsHttp.url;
+       this.headers = SettingsHttp.headers;
+
+     }
 
     	search_txt(searchTxt: any): Observable<any>{
    
@@ -23,10 +28,8 @@ export class SearchTxtService {
           							             data:searchTxt});
 
           json = "json="+json;
-          
-          let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
               
-          return this.http.post(this.url, json, {headers: headers});
+          return this.http.post(this.url, json, {headers: this.headers});
     
       }
 
@@ -37,11 +40,7 @@ export class SearchTxtService {
 
           json = "json="+json;
           
-          let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
-           
-          return this.http.post(this.url, json, {headers: headers});       
-
-          //return this.http.get('http://localhost/Angular/Proyectos/backendDiccionarioPhp/prueba.php');
+          return this.http.post(this.url, json, {headers: this.headers});       
 
       }        
 

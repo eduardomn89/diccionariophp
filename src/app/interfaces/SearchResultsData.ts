@@ -1,15 +1,7 @@
-export class SearchResultsData{
-	public id:number;
-	public functionName:string;
-    public description:string;
-    
-
-	constructor(){
+export interface SearchResultsData{
 	
-		this.id = 0;	
-		this.functionName = "";
-		this.description = "";
-
-	}
+	id:number;
+	functionName:string;
+    description:string;
 
 }

@@ -12,8 +12,8 @@ declare var app:any;
 
 export class ShowSearchResultsComponent implements OnInit {
 	
-	functionsContainer:any = null;
-	results:SearchResultsData[] = [{id:0,functionName:'', description:''}]
+	 functionsContainer:any = null;
+	 results:SearchResultsData[] = [{id:0, functionName:'', description:''}]
 
   	constructor(private searchService:SearchTxtService = null) { 
 
@@ -21,10 +21,10 @@ export class ShowSearchResultsComponent implements OnInit {
 
   	ngOnInit() {
 
-  		this.functionsContainer = app.getById('functions-container'); 
+  		  this.functionsContainer = app.getById('functions-container'); 
   		
-  		app.dom.functionsContainer = this.functionsContainer;
-  		app.objects.searchResults = this;
+  		  app.dom.functionsContainer = this.functionsContainer;
+  		  app.objects.searchResults = this;
 
   	}
 
@@ -36,7 +36,7 @@ export class ShowSearchResultsComponent implements OnInit {
 
     open_deleteForm(data:any = ''){
                 
-      app.objects.delForm.open_form(data);
+        app.objects.delForm.open_form(data);
 
     }
 

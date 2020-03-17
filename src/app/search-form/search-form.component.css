@@ -8,12 +8,18 @@
 	align-items: center;
 	font-size: 130%; 
 	flex-basis: 20%;
+	margin: 2px;
 }
 .search-txt{
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: solid 1px white; 
 	flex-basis: 70%;
 }
 .search-btn{
 	background: #17A05D;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
 	flex-basis: 10%;
 	height: 100%;	
 }
