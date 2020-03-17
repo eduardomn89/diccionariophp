@@ -12,11 +12,11 @@ declare var app:any
 
 export class SearchFormComponent implements OnInit {
 
-  	searchForm:any;
-  	searchTxt:any = '';
-  	serviceMsg:any = '';
-  	functionsContainer:any = null;
-  	searchResults:SearchResultsData;
+  	public searchForm:any;
+  	public searchTxt:any = '';
+  	public serviceMsg:any = '';
+  	public functionsContainer:any = null;
+  	public searchResults:SearchResultsData;
 
   	constructor(private searchService:SearchTxtService = null){}
 

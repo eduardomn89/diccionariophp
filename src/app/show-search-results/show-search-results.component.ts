@@ -12,8 +12,8 @@ declare var app:any;
 
 export class ShowSearchResultsComponent implements OnInit {
 	
-	 functionsContainer:any = null;
-	 results:SearchResultsData[] = [{id:0, functionName:'', description:''}]
+	 public functionsContainer:any = null;
+	 public results:SearchResultsData[] = [{id:0, functionName:'', description:''}]
 
   	constructor(private searchService:SearchTxtService = null) { 
 

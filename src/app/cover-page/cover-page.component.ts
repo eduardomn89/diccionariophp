@@ -10,7 +10,7 @@ declare var app:any;
 
 export class CoverPageComponent implements OnInit {
 	
-	  coverPage:any;
+	  public coverPage:any;
 
   	constructor() { }
 

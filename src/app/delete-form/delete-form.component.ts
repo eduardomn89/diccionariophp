@@ -13,12 +13,12 @@ declare var app:any;
 
 export class DeleteFormComponent implements OnInit {
     
-    delModal:any = null;
-  	delForm:any = null;
-    functionName:string = '';
-    functionId:number = 0;
-    closeFormBtn = null;
-    serviceMsg:string = '';
+    public delModal:any = null;
+  	public delForm:any = null;
+    public functionName:string = '';
+    public functionId:number = 0;
+    public closeFormBtn = null;
+    public serviceMsg:string = '';
 
   	constructor(private delService:DeleteFunctionService = null){
 

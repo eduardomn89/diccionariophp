@@ -11,11 +11,11 @@ declare var app:any
 
 export class AddFormComponent implements OnInit {
 
-  	private addForm:any = null;
-  	private closeFormBtn:any = null;
-    private functionName:string = '';
-    private description:string = '';
-    private serviceMsg:any = '';
+  	public addForm:any = null;
+  	public closeFormBtn:any = null;
+    public functionName:string = '';
+    public description:string = '';
+    public serviceMsg:any = '';
     
   	constructor(private afs:AddFunctionService = null){
 

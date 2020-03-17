@@ -12,13 +12,13 @@ declare var app:any;
 
 export class UpdateFormComponent implements OnInit {
 
-  	updateForm = null;
-  	closeFormBtn = null;
-    functionName:string = '';
-    functionNameTitle:String = '';
-    description:string = '';
-    functionId:number = 0;
-    serviceMsg:string = '';
+  	public updateForm = null;
+  	public closeFormBtn = null;
+    public functionName:string = '';
+    public functionNameTitle:String = '';
+    public description:string = '';
+    public functionId:number = 0;
+    public serviceMsg:string = '';
 
   	constructor(private updateService:UpdateFunctionService = null){
 

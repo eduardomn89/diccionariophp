@@ -11,8 +11,8 @@ declare var app:any;
 
 export class AsideComponent implements OnInit {
 	
-	serviceMsg:any;
-	alphabet:any = '';
+	public serviceMsg:any;
+	public alphabet:any = '';
 
   	constructor(private searchService:SearchTxtService = null) { }
 
