@@ -15,8 +15,6 @@ import { ShowSearchResultsComponent } from './show-search-results/show-search-re
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
-import { PaginationComponent } from './pagination/pagination.component';
-
 
 @NgModule({
   declarations: [
@@ -29,7 +27,6 @@ import { PaginationComponent } from './pagination/pagination.component';
     AddFormComponent,
     UpdateFormComponent,
     DeleteFormComponent,
-    PaginationComponent
   ],
   imports: [
     BrowserModule,

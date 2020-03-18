@@ -15,11 +15,12 @@ export class ShowSearchResultsComponent implements OnInit {
 	
 	  public functionsContainer:any = null;
 	  public results:SearchResultsData[] = [{id:0, functionName:'', description:''}];
+    //paginador
     p: number = 1;
     totalRec : number;
     page: number = 1;
-    //collection: any[] = someArrayOfThings;  
-
+    paginationWrap:any = null;
+   
   	constructor(private searchService:SearchTxtService = null) { 
 
   	}
@@ -27,7 +28,8 @@ export class ShowSearchResultsComponent implements OnInit {
   	ngOnInit() {
 
   		  this.functionsContainer = app.getById('functions-container'); 
-  		
+        this.paginationWrap = app.getById('pagination-wrap');
+
   		  app.dom.functionsContainer = this.functionsContainer;
   		  app.objects.searchResults = this;
 
