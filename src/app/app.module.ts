@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,7 @@ import { ShowSearchResultsComponent } from './show-search-results/show-search-re
 import { AddFormComponent } from './add-form/add-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 import { DeleteFormComponent } from './delete-form/delete-form.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -26,13 +28,15 @@ import { DeleteFormComponent } from './delete-form/delete-form.component';
     ShowSearchResultsComponent,
     AddFormComponent,
     UpdateFormComponent,
-    DeleteFormComponent
+    DeleteFormComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

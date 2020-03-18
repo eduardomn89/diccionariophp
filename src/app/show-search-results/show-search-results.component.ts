@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchTxtService } from '../services/search-txt.service';
 import { SearchResultsData } from '../interfaces/SearchResultsData';
 
+
 declare var app:any;
 
 @Component({
@@ -12,8 +13,12 @@ declare var app:any;
 
 export class ShowSearchResultsComponent implements OnInit {
 	
-	 public functionsContainer:any = null;
-	 public results:SearchResultsData[] = [{id:0, functionName:'', description:''}]
+	  public functionsContainer:any = null;
+	  public results:SearchResultsData[] = [{id:0, functionName:'', description:''}];
+    p: number = 1;
+    totalRec : number;
+    page: number = 1;
+    //collection: any[] = someArrayOfThings;  
 
   	constructor(private searchService:SearchTxtService = null) { 
 
