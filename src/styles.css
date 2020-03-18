@@ -265,15 +265,21 @@ table .tdDer{
 	margin-top: 10px;
 	text-align: right;
 }
-.action-formBtn, .close-modalBtn{
+.action-formBtn, .close-modalBtn,
+.close-formBtn{
 	background-color:#2D65D5;
 	border: white;
+	border-radius:5px;
 	color:white;
 	cursor:pointer;
-	border-radius:5px;
+	display: flex;
+	align-content: center;
+	justify-content: center;
 	width: 150px;
 	min-width:100px;
-	padding:2%;
+}
+.action-formBtn{
+	margin-right: 5px;
 }
 .close-modalBtn{
 	background-color: #DD5145;

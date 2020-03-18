@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AddFunctionService } from '../services/add-function.service';
 
 declare var app:any 
@@ -15,15 +15,13 @@ export class AddFormComponent implements OnInit {
   	public closeFormBtn:any = null;
     public functionName:string = '';
     public description:string = '';
-    public serviceMsg:any = '';
+    @Input() boxMsg:any = null;
     
   	constructor(private afs:AddFunctionService = null){
 
     }
 
   	ngOnInit() {
-
-      this.serviceMsg = app.getById('service-msg'); 
 
       this.addForm = app.getById('add-form'); 
       
@@ -45,17 +43,17 @@ export class AddFormComponent implements OnInit {
                                                   this.functionName = '';
                                                   this.description = '';
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
                                                 }else{
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.msg_type(result.status, result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
                                                 }    
 
                                             }, error => {
                                                 console.log(error);    
-                                                 app.innerHTML(this.serviceMsg, app.msg.danger(error.message+' / '+error.error.text));
+                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
     
@@ -69,7 +67,7 @@ export class AddFormComponent implements OnInit {
 
   	close_form(){
 
-      app.innerHTML(this.serviceMsg, '');
+      app.innerHTML(this.boxMsg, '');
 
       app.switch_view(app.switchViews(), 'coverPage'); 
 

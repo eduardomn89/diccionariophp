@@ -30,16 +30,6 @@
 .control-wrap input{
 	flex-basis: 60%;
 }
-.control-wrapTextArea{
-
-}
-.control-wrapTextArea label{
-
-}
-.control-wrapTextArea textarea{
-	box-sizing: border-box;
-	width: 100%;	
-}
 .footer-form{
 	display: flex;
 	padding: 5px 15px 15px 15px;	

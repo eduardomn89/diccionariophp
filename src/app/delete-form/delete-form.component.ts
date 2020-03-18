@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DeleteFunctionService } from '../services/delete-function.service';
 
 declare var app:any;
@@ -18,11 +18,11 @@ export class DeleteFormComponent implements OnInit {
     public functionName:string = '';
     public functionId:number = 0;
     public closeFormBtn = null;
-    public serviceMsg:string = '';
+    @Input() boxMsg:string = null;
 
   	constructor(private delService:DeleteFunctionService = null){
 
-      this.serviceMsg = app.getById('service-msg'); 
+      this.boxMsg = app.getById('service-msg'); 
     
     }
     
@@ -46,7 +46,7 @@ export class DeleteFormComponent implements OnInit {
 
                                                     app.hide(this.delModal); 
                                                     
-                                                    app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
+                                                    app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
                                                     let newResults:[] = [];
          
@@ -56,13 +56,13 @@ export class DeleteFormComponent implements OnInit {
 
                                                 }else{
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.msg_type(result.status, result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
                                                 }    
 
                                             }, error => {
                                                     
-                                                 app.innerHTML(this.serviceMsg, app.msg.danger(error.message+' / '+error.error.text));
+                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
     

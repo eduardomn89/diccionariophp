@@ -7,7 +7,7 @@
     <aside class="index-wrap">    
 
       <!--barra lateral-->
-      <app-aside></app-aside>
+      <app-aside [boxMsg]="boxMsgs"></app-aside>
     
     </aside>
 
@@ -22,11 +22,12 @@
         <!--contenido-->
 
         <div class="components-wrap" id="components-wrap">
+          
           <app-cover-page></app-cover-page>
-          <app-show-search-results ></app-show-search-results>          
-          <app-add-form></app-add-form>
-          <app-update-form></app-update-form>
-          <app-delete-form></app-delete-form>
+          <app-show-search-results></app-show-search-results>          
+          <app-add-form [boxMsg]="boxMsgs"></app-add-form>
+          <app-update-form [boxMsg]="boxMsgs"></app-update-form>
+          <app-delete-form [boxMsg]="boxMsgs"></app-delete-form>
           
         </div>
 

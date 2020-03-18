@@ -14,7 +14,7 @@ export class SearchFormComponent implements OnInit {
 
   	public searchForm:any;
   	public searchTxt:any = '';
-  	public serviceMsg:any = '';
+  	@Input() boxMsg:any = '';
   	public functionsContainer:any = null;
   	public searchResults:SearchResultsData;
     private searchLoader:any = null; 
@@ -29,7 +29,7 @@ export class SearchFormComponent implements OnInit {
 
       	app.objects.searchForm = this;
  
-        this.serviceMsg = app.getById('service-msg'); 
+        this.boxMsg = app.getById('service-msg'); 
 
         this.searchLoader = app.getById('search-loaderWrap');
  
@@ -45,7 +45,7 @@ export class SearchFormComponent implements OnInit {
                                                 
                                                 if(result.status == 'done'){
 
-                                                  	  app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
+                                                  	  app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
                                                       //cerrar todo y mostrar la portada
                                                       app.switch_view(app.switchViews(), 'functionsContainer');
@@ -58,13 +58,13 @@ export class SearchFormComponent implements OnInit {
                                                 
                                                 }else{
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.msg_type(result.status, result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
                                                 }    
 
                                             }, error => {
                                                     
-                                                 app.innerHTML(this.serviceMsg, app.msg.danger(error.message+' / '+error.error.text));
+                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
 

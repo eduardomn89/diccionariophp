@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UpdateFunctionService } from '../services/update-function.service';
 import { SearchResultsData } from '../interfaces/SearchResultsData';
 
@@ -18,13 +18,9 @@ export class UpdateFormComponent implements OnInit {
     public functionNameTitle:String = '';
     public description:string = '';
     public functionId:number = 0;
-    public serviceMsg:string = '';
+    @Input() boxMsg:any = '';
 
-  	constructor(private updateService:UpdateFunctionService = null){
-
-      this.serviceMsg = app.getById('service-msg'); 
-    
-    }
+  	constructor(private updateService:UpdateFunctionService = null){ }
 
   	ngOnInit(){
 
@@ -85,17 +81,17 @@ export class UpdateFormComponent implements OnInit {
                                                   this.functionName = '';
                                                   this.description = '';
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.success(result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
                                                 }else{
 
-                                                  app.innerHTML(this.serviceMsg, app.msg.msg_type(result.status, result.notice));
+                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
                                                 }    
 
                                             }, error => {
                                                     
-                                                 app.innerHTML(this.serviceMsg, app.msg.danger(error.message+' / '+error.error.text));
+                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
     
@@ -137,7 +133,7 @@ export class UpdateFormComponent implements OnInit {
 
       //cerrar formulario para editar funcion 
 
-      app.innerHTML(this.serviceMsg, '');
+      app.innerHTML(this.boxMsg, '');
 
       app.switch_view(app.switchViews(), 'functionsContainer'); 
 

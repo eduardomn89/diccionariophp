@@ -12,13 +12,13 @@
 	
 		<div class="control-group"> 
 			<label for="description">Descripcion de la funcion:</label>
-			<textarea cols="50" rows="10" name="description" id="description" class="update-data" [(ngModel)]='description'></textarea>
+			<textarea cols="50" rows="5" name="description" id="description" class="update-data" [(ngModel)]='description'></textarea>
 		</div>
 		<input type="hidden" name="functionId" value="" [(ngModel)]="functionId">
 	</div>
 	
 	<div class="footer-form">
-		<input type="submit" name="addFunctionBtn" id="update-functionBtn" class="btn update-functionBtn" value="Actualizar" (click)='update_one()'>
+		<input type="submit" name="addFunctionBtn" id="update-functionBtn" class="btn action-formBtn update-functionBtn" value="Actualizar" (click)='update_one()'>
 		<input type="button" name="closeBtn" id="close-formBtn" class="btn close-formBtn" value="Cerrar" (click)="close_form()"> 
 	</div>
 
