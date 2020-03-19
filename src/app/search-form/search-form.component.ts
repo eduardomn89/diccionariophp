@@ -52,25 +52,21 @@ export class SearchFormComponent implements OnInit {
 
                                                       //cargar los resultados en el componente showSearchResults
                                                       
-                                                      let srComponent = app.objects.searchResults;
+                                                      //let srComponent = app.objects.searchResults;
 
-                                                      srComponent.results = result.data; 
+                                                      app.objects.searchResults.results = result.data; 
 
-                                                      //srComponent.functionsContainer.scrollTop = 0;
+                                                      //app.objects.searchResults.functionsContainer.scrollTop = 0;
+
+                                                      //resetear paginador
+                                                      app.objects.searchResults.reset_pagination();
 
                                                       /*Si los resultados son mayores a 10 se muestra el paginador
-                                                      de lo contraio se oculta*/
+                                                      de lo contrario se oculta*/
 
-                                                      if(result.data.length >= 10){
-                                                      
-                                                        app.show(srComponent.paginationWrap);
+                                                      //mostrar u ocultar paginador
+                                                      app.objects.searchResults.show_pagination(result.data);
 
-                                                      }else{
-
-                                                          app.hide(srComponent.paginationWrap);
-                                                      
-                                                      } 
-                                                      
                                                       //ocultar la imagen preloader
                                                       app.hide(this.searchLoader);
                                                 

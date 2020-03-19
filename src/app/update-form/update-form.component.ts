@@ -66,6 +66,7 @@ export class UpdateFormComponent implements OnInit {
                                                       newData[c] = {id:target.id, 
                                                                     functionName:target.functionName,
                                                                     description:target.description};
+                                                                    
                                                     }
 
                                                     c++;

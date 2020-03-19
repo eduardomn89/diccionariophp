@@ -47,7 +47,9 @@ export class AsideComponent implements OnInit {
   	
   	}
 
-  	search_txt(txt = ''){
+  	search_txt(txt:any = ''){
+
+  		//busqueda por alfabeto
 
       	let data = {'search': txt};
 
@@ -57,10 +59,21 @@ export class AsideComponent implements OnInit {
 
 				                                                  	app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
+				                                                  	//mostrar el contenedor para resultados 
 				                                                    app.switch_view(app.switchViews(), 'functionsContainer');
 
-				                                                    app.objects.searchResults.results = result.data; 
-				  													                         
+				                                                    //let srComponent = app.objects.searchResults;
+
+				                                                    //cargar resultados
+				                                                    app.objects.searchResults.results = result.data;
+
+				                                                    //resetear paginador
+				                                                    app.objects.searchResults.reset_pagination();
+
+				                                                    //mostrar paginador si los resultados son mayores a 10
+
+				                                                    app.objects.searchResults.show_pagination(result.data);
+ 
 				                                                }else{
 
 				                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));

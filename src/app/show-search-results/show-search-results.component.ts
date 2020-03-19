@@ -47,4 +47,48 @@ export class ShowSearchResultsComponent implements OnInit {
 
     }
 
+    show_pagination(dataFunctions:any = ''){
+ 
+        if(dataFunctions.length >= 10){
+                                                  
+          app.show(this.paginationWrap);
+
+        }else{
+
+          app.hide(this.paginationWrap);
+          
+        }
+    
+    }
+
+    paginate(pageNumber:number = 0){
+
+      this.page = pageNumber;
+
+      this.action_fn();
+
+    }
+
+    action_fn(fn = null){
+
+      this.functionsContainer.scrollTop = 0; 
+
+      if(typeof fn === 'function'){
+
+          fn();
+
+      }else{
+
+          return false;
+
+      }
+
+    }
+
+    reset_pagination(){
+
+      this.page = 1;
+
+    }
+
 }
