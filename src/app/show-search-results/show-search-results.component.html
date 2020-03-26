@@ -7,7 +7,7 @@
         <!--Carga de funciones -->
        	<div class="function-name"><strong>{{function.functionName}}</strong></div>
        	<div class="description">
-       		<div class="description-wrap" [innerHTML] = "function.description"></div>
+       		<div class="description-wrap" [innerHTML] = "unescape_data(function.description)"></div>
        		<div class="btns-wrap">
        			<button class="update-btn fas fa-pencil-alt" (click)="open_updateForm(function)"></button>
        			<button class="del-btn fas fa-trash-alt" (click)="open_deleteForm(function)"></button>

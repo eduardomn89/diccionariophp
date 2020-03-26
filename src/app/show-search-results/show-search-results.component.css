@@ -17,6 +17,7 @@
 }
 .description-wrap{
 	flex-basis: 90%; 
+	text-align: justify;
 }
 .btns-wrap{
 	display: flex;

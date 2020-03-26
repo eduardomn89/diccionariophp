@@ -1,3 +1,5 @@
+//Componente para el formulario de busqueda
+
 import { Component, OnInit, Input } from '@angular/core';
 import { SearchTxtService } from '../services/search-txt.service';
 import { SearchResultsData } from '../interfaces/SearchResultsData';
@@ -14,7 +16,8 @@ export class SearchFormComponent implements OnInit {
 
   	public searchForm:any;
   	public searchTxt:any = '';
-  	@Input() boxMsg:any = '';
+  	@Input() appComponent:any = '';
+    boxMsg:any = null;
   	public functionsContainer:any = null;
   	public searchResults:SearchResultsData;
     private searchLoader:any = null; 
@@ -29,15 +32,15 @@ export class SearchFormComponent implements OnInit {
 
       	app.objects.searchForm = this;
  
-        this.boxMsg = app.getById('service-msg'); 
+        this.boxMsg = this.appComponent.boxMsgs; 
 
         this.searchLoader = app.getById('search-loaderWrap');
  
   	}
 
-  	search_txt(){
+  	search_txt():void{
 
-      	let data = {search: this.searchTxt};
+      	let data:any = {search: this.searchTxt};
         
         app.show(this.searchLoader);
       	
@@ -51,8 +54,6 @@ export class SearchFormComponent implements OnInit {
                                                       app.switch_view(app.switchViews(), 'functionsContainer');
 
                                                       //cargar los resultados en el componente showSearchResults
-                                                      
-                                                      //let srComponent = app.objects.searchResults;
 
                                                       app.objects.searchResults.results = result.data; 
 
@@ -63,19 +64,17 @@ export class SearchFormComponent implements OnInit {
 
                                                       /*Si los resultados son mayores a 10 se muestra el paginador
                                                       de lo contrario se oculta*/
-
-                                                      //mostrar u ocultar paginador
                                                       app.objects.searchResults.show_pagination(result.data);
 
-                                                      //ocultar la imagen preloader
-                                                      app.hide(this.searchLoader);
-                                                
                                                 }else{
 
                                                   app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
                                                 }    
 
+                                                //ocultar la imagen preloader
+                                                app.hide(this.searchLoader);
+                                                
                                             }, error => {
                                                     
                                                  app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));

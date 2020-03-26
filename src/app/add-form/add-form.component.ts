@@ -1,5 +1,8 @@
+//Componente de formulario para agregar funcion
+
 import { Component, OnInit, Input } from '@angular/core';
 import { AddFunctionService } from '../services/add-function.service';
+import { FunctionData } from '../interfaces/FunctionData';
 
 declare var app:any 
 
@@ -31,10 +34,10 @@ export class AddFormComponent implements OnInit {
 
   	}
 
-  	add_one(){
+  	add_one():void{
 
-      let data = {'functionName': this.functionName,
-                  'description': this.description};
+      let data:FunctionData = {'functionName': this.functionName,
+                               'description': this.description};
 
       this.afs.add_function(data).subscribe( result => {
                                                 
@@ -52,20 +55,20 @@ export class AddFormComponent implements OnInit {
                                                 }    
 
                                             }, error => {
-                                                console.log(error);    
+                                                 console.log(error);    
                                                  app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
     
     }
 
-  	open_form(){
+  	open_form():void{
 
       app.switch_view(app.switchViews(), 'addForm');
 
   	}
 
-  	close_form(){
+  	close_form():void{
 
       app.innerHTML(this.boxMsg, '');
 

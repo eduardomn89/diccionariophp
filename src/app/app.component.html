@@ -1,13 +1,13 @@
 <div class="main-container">
 
-  <app-header></app-header>
+  <app-header [appComponent]='appComponent'></app-header>
   
   <section class="container">
 
     <aside class="index-wrap">    
 
       <!--barra lateral-->
-      <app-aside [boxMsg]="boxMsgs"></app-aside>
+      <app-aside [appComponent]="appComponent"></app-aside>
     
     </aside>
 
@@ -20,13 +20,18 @@
       <div class="content">
         
         <!--contenido-->
-
+        <div class="loader-container">
+            
+            <div class="loader-img" id="loader-img"></div>
+        
+        </div>
+  
         <div class="components-wrap" id="components-wrap">
           
           <app-cover-page></app-cover-page>
-          <app-show-search-results></app-show-search-results>          
+          <app-show-search-results [appComponent]="appComponent"></app-show-search-results>          
           <app-add-form [boxMsg]="boxMsgs"></app-add-form>
-          <app-update-form [boxMsg]="boxMsgs"></app-update-form>
+          <app-update-form [appComponent]="appComponent"></app-update-form>
           <app-delete-form [boxMsg]="boxMsgs"></app-delete-form>
           
         </div>

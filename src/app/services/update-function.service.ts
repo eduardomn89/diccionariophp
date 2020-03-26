@@ -22,22 +22,22 @@ export class UpdateFunctionService {
 
   	get_data_form(id:number = 0){
 
- 		    let json = JSON.stringify({request:'get_data_updateForm',
-        						              data:{id:id}});
+ 		    let json = JSON.stringify({"request":"get_data_updateForm",
+        						              "data":{"id":id}});
 
         json = "json="+json;
-         
+
         return this.http.post(this.url, json, {headers: this.headers}); 		
 
   	}
 
   	update_function(functionData: FunctionData): Observable<any>{
- 
-        let json = JSON.stringify({request:'update_data',
+      
+        let json = JSON.stringify({request:'updatedata',
         							             data:functionData});
-
+        //console.log(json);
         json = "json="+json;
-         
+
         return this.http.post(this.url, json, {headers: this.headers});
  
     }

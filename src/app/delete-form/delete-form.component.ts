@@ -1,3 +1,5 @@
+//Componente para el modal para confirmar la eliminacion de una funcion
+
 import { Component, OnInit, Input } from '@angular/core';
 import { DeleteFunctionService } from '../services/delete-function.service';
 
@@ -36,7 +38,7 @@ export class DeleteFormComponent implements OnInit {
     
     }
 
-    del_one(){
+    del_one():void{
 
       let data = {id:this.functionId};
   
@@ -68,7 +70,7 @@ export class DeleteFormComponent implements OnInit {
     
     }
 
-  	open_form(data:any = ''){
+  	open_form(data:any = ''):void{
              	  
         this.functionId = data.id;
         
@@ -78,7 +80,7 @@ export class DeleteFormComponent implements OnInit {
 
   	}
 
-  	close_form(){
+  	close_form():void{
 
       app.hide(this.delModal); 
 
