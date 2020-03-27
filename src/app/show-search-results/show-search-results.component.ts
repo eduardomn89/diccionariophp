@@ -87,15 +87,7 @@ export class ShowSearchResultsComponent implements OnInit {
 
     unescape_data(data:string = ''){
         
-        console.log(data);
-        let dataF = decodeURIComponent(data);
-        //let dataF = this.appComponent.hexToString(data);
-        
-        //let uri_encoded = data.replace(/%([^\d].)/, "%25$1");
-
-        //let dataF = decodeURI(data.replace(/%5B/g, '[').replace(/%5D/g, ']'));
-
-        //return  dataF.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, dataF);
+        let dataF = this.appComponent.decode_txt(data);
 
         return dataF;
 

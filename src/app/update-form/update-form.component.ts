@@ -39,9 +39,8 @@ export class UpdateFormComponent implements OnInit {
         let description = this.description;
 
         //escapar caracteres para evitar error al decodificar en backend 
-        //description = encodeURIComponent(description);
 
-        description = encodeURI(this.appComponent.fixedEncodeURIComponent(description));
+        description = this.appComponent.encode_txt(description);
 
       	let data:SearchResultsData = {"id":this.functionId,
       			                          "functionName": this.functionName,
@@ -123,19 +122,9 @@ export class UpdateFormComponent implements OnInit {
      	  
         this.functionName = data.functionName;
 
-        //Quitar los <br> de la descripcion
-        
-        let arrayDesc = data.description.split('<br />');
-        
-        let description = '';
+        this.description = this.appComponent.decode_txt(data.description);
 
-        app.loop({target: arrayDesc, fn:(text) => { 
-
-            description += text;
-
-        }});
-
-       	this.description = decodeURIComponent(description);
+        this.description = this.description.replace(/<br \/>/g, '\n');
 
        	this.functionId = data.id;
 

@@ -1,5 +1,6 @@
 .functions-container{
 	display: none;
+	width: 100%;
 }
 .function-wrap{
 	border: solid 1px #BEBEBF;
@@ -14,10 +15,13 @@
 }
 .description{
 	display: flex;
+	white-space: nowrap;
+	overflow: hidden;
 }
 .description-wrap{
 	flex-basis: 90%; 
-	text-align: justify;
+	word-wrap: break-word;
+	white-space: pre-wrap;
 }
 .btns-wrap{
 	display: flex;

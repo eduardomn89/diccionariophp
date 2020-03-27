@@ -25,21 +25,28 @@ export class AppComponent {
   
     }
 
-    encode_txt(string:string = ''){
+    encode_txt(stringData:string = ''){
 
+        //codificar espacios en blanco, escapar hexadecimales y sustituir saltos de linea 
+        //del texto para su nevio, si no se hace ocurre un error de parsing en backend
 
+        let data = stringData.replace(/\n/g, "<br />");
+    
+        return encodeURI(this.appComponent.fixedEncodeURIComponent(data));
 
     }
 
-    decode_txt(string:string = ''){
+    decode_txt(stringData:string = ''){
 
-
-
+        //decodificat texto
+        
+        return decodeURIComponent(stringData);
+        
     }
     
     fixedEncodeURIComponent(str) {
 
-      //escapar los hexadecimales 
+      //escapar hexadecimales 
 
       return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
 

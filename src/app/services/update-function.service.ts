@@ -35,7 +35,7 @@ export class UpdateFunctionService {
       
         let json = JSON.stringify({request:'updatedata',
         							             data:functionData});
-        //console.log(json);
+        
         json = "json="+json;
 
         return this.http.post(this.url, json, {headers: this.headers});
