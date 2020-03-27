@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+//Componente para el header
+
+import { Component, OnInit, Input } from '@angular/core';
 
 declare var app:any;
 
@@ -10,13 +12,23 @@ declare var app:any;
 
 export class HeaderComponent implements OnInit {
 
+    @Input() appComponent:any = null;
+
   	constructor() { }
 
   	ngOnInit() {
   	
   	}
 
-  	open_add_form(){
+    go_home(){
+
+      //cerrar todo y mostrar la portada
+      app.switch_view(app.switchViews(), 'coverPage');
+      this.appComponent.clean_boxMsg();
+
+    }
+
+  	open_add_form():void{
 
       app.objects.addForm.open_form();
 

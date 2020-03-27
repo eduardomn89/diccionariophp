@@ -1,13 +1,13 @@
 <header class="header-page">
     	
-  	<div class="header-logoWrap">
+  	<div class="header-logoWrap" (click)="go_home()">
   		<img src="assets/page_logo/php.jpg" alt="Logotipo de la pagina">
   	
   	</div>  
 	   
     <div class="search-formWrap">
 
-	   <app-search-form></app-search-form>  
+	   <app-search-form [appComponent]="appComponent"></app-search-form>  
 
   	</div>
   	

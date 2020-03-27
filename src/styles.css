@@ -11,7 +11,7 @@ html, body{
 	margin: 0px;
 	position: absolute;
 	padding: 0px;
-	width: 100%;
+	width: 100vw;
 	height: auto;
 }
 
@@ -26,15 +26,47 @@ h1,h2,h3{
 	background: white;
 	box-sizing: border-box;
 	margin:0px;
-	width:100%;
+	width: 100%;
+	max-width:100vw;
 	height:auto;
 	min-height: 100vh;
 	overflow: auto;
 	position: static; 
 }
 
+html, body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+html, body::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+html, body::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+html,body::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+html, body::-webkit-scrollbar-track:hover,
+html, body::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+
 .container{
 	width: 100%;
+	max-width: 100vw;
+	padding: 1px;
 	display: flex;
 }
 
@@ -197,7 +229,7 @@ table .tdDer{
 	background-color: #F9F9FA;
 	border-radius: 5px;
 	margin: 50px auto;
-	width:50%;
+	width:90%;
 	min-width:550px;
 	height:auto;
 }
@@ -341,7 +373,6 @@ select{
 	display: none;
 }
 
-/*Estilos generales*/
 .btnGen{
 	padding:2%;
 	background-color:#658AE3;

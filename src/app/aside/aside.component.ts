@@ -1,3 +1,5 @@
+//Componente con el abecedario para busqueda por alfabeto
+
 import { Component, OnInit, Input } from '@angular/core';
 import { SearchTxtService } from '../services/search-txt.service';
 
@@ -11,12 +13,18 @@ declare var app:any;
 
 export class AsideComponent implements OnInit {
 	
-	@Input() boxMsg:any = null;
+	@Input() appComponent:any = null;
 	public alphabet:any = '';
+	boxMsg:any = null;
+	loaderImg:any = null;
 
   	constructor(private searchService:SearchTxtService = null) { }
 
   	ngOnInit() {
+
+  		this.boxMsg = this.appComponent.boxMsgs;
+  		
+  		this.loaderImg = this.appComponent.loaderImg;
 
   		this.alphabet = [{"letra":"a", "valor":"A"},
 						{"letra":"b", "valor":"B"},
@@ -47,9 +55,18 @@ export class AsideComponent implements OnInit {
   	
   	}
 
-  	search_txt(txt = ''){
+  	search_txt(txt:string = ''):void{
 
-      	let data = {'search': txt};
+  		//busqueda por alfabeto
+  		//parametro txt recibe la letra del alfabeto
+
+  		this.appComponent.clean_boxMsg();
+      	
+      	let data:any = {'search': txt};
+
+      	app.show(this.loaderImg);
+
+      	window.scroll(0, 100);//moviendo scroll hacia arriva
 
       	this.searchService.search_byAlphabet(data).subscribe( result => {
                                             
@@ -57,21 +74,36 @@ export class AsideComponent implements OnInit {
 
 				                                                  	app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
+				                                                  	//mostrar el contenedor para resultados 
 				                                                    app.switch_view(app.switchViews(), 'functionsContainer');
 
-				                                                    app.objects.searchResults.results = result.data; 
-				  													                         
+				                                                    //cargar resultados en el componente showRearchResults
+				                                                    app.objects.searchResults.results = result.data;
+
+				                                                    //resetear paginador
+				                                                    app.objects.searchResults.reset_pagination();
+
+				                                                    //mostrar paginador si los resultados son mayores a 10
+
+				                                                    app.objects.searchResults.show_pagination(result.data);
+
 				                                                }else{
 
 				                                                  app.innerHTML(this.boxMsg, app.msg.msg_type(result.status, result.notice));
 
+				                                                  app.objects.searchResults.results = '';
+
 				                                                }    
+
+				                                                app.hide(this.loaderImg);
 
 				                                            }, error => {
 				                                                    
 				                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
 				                                            
 				                                            });
+
+				                                            
 
   	}
 

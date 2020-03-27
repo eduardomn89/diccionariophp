@@ -1,3 +1,5 @@
+//Componente para formulario de editar funcion 
+
 import { Component, OnInit, Input } from '@angular/core';
 import { UpdateFunctionService } from '../services/update-function.service';
 import { SearchResultsData } from '../interfaces/SearchResultsData';
@@ -18,7 +20,8 @@ export class UpdateFormComponent implements OnInit {
     public functionNameTitle:String = '';
     public description:string = '';
     public functionId:number = 0;
-    @Input() boxMsg:any = '';
+    @Input() appComponent:any = '';
+    public boxMsg:any = null;
 
   	constructor(private updateService:UpdateFunctionService = null){ }
 
@@ -26,17 +29,26 @@ export class UpdateFormComponent implements OnInit {
 
         this.updateForm = app.getById('update-functionForm'); 
         app.dom.updateForm = this.updateForm;
+        this.boxMsg = this.appComponent.boxMsgs;
         app.objects.updateForm = this;
     
     }
 
-    update_one(){
+    update_one():void{
 
-      	let data:SearchResultsData = {'id':this.functionId,
-      			        'functionName': this.functionName,
-                    'description': this.description};
-  
+        let description = this.description;
+
+        //escapar caracteres para evitar error al decodificar en backend 
+
+        description = this.appComponent.encode_txt(description);
+
+      	let data:SearchResultsData = {"id":this.functionId,
+      			                          "functionName": this.functionName,
+                                      "description":description};
+
       	this.updateService.update_function(data).subscribe( result => {
+
+                                                console.log(result);
 
                                                 if(result.status == 'done'){
 
@@ -56,7 +68,7 @@ export class UpdateFormComponent implements OnInit {
                                                     la variable results se modifica los datos editados*/
 
                                                       newData[c] = {id:this.functionId, 
-                                                                   functionName:this.functionName,
+                                                                    functionName:this.functionName,
                                                                     description:this.description};;
 
                                                     }else{
@@ -66,6 +78,7 @@ export class UpdateFormComponent implements OnInit {
                                                       newData[c] = {id:target.id, 
                                                                     functionName:target.functionName,
                                                                     description:target.description};
+                                                                    
                                                     }
 
                                                     c++;
@@ -90,36 +103,30 @@ export class UpdateFormComponent implements OnInit {
                                                 }    
 
                                             }, error => {
-                                                    
-                                                 app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
+                                                
+                                                console.log(error);
+
+                                                app.innerHTML(this.boxMsg, app.msg.danger(error.message+' / '+error.error.text));
                                             
                                             });
     
     }
 
-  	open_form(data:any = ''){
+  	open_form(data:any = ''):void{
 
         /*Abrir formulario para editar funcion
         El parametro data viene de el componente show-search-results.
         Se pasa en el metodo open_update_form.*/
 
+        this.appComponent.clean_boxMsg();
+
         this.functionNameTitle = data.functionName;
      	  
         this.functionName = data.functionName;
 
-        //Quitar los <br> de la descripcion
-        
-        let arrayDesc = data.description.split('<br />');
-        
-        let description = '';
+        this.description = this.appComponent.decode_txt(data.description);
 
-        app.loop({target: arrayDesc, fn:(text) => { 
-
-            description += text;
-
-        }});
-
-       	this.description = description;
+        this.description = this.description.replace(/<br \/>/g, '\n');
 
        	this.functionId = data.id;
 
@@ -129,7 +136,7 @@ export class UpdateFormComponent implements OnInit {
 
   	}
 
-  	close_form(){
+  	close_form():void{
 
       //cerrar formulario para editar funcion 
 
