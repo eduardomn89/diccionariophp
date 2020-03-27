@@ -40,6 +40,8 @@ export class SearchFormComponent implements OnInit {
 
   	search_txt():void{
 
+        this.appComponent.clean_boxMsg();
+        
       	let data:any = {search: this.searchTxt};
         
         app.show(this.searchLoader);

@@ -118,6 +118,8 @@ export class UpdateFormComponent implements OnInit {
         El parametro data viene de el componente show-search-results.
         Se pasa en el metodo open_update_form.*/
 
+        this.appComponent.clean_boxMsg();
+
         this.functionNameTitle = data.functionName;
      	  
         this.functionName = data.functionName;

@@ -15,25 +15,30 @@ declare var app:any;
 
 export class DeleteFormComponent implements OnInit {
     
-    public delModal:any = null;
-  	public delForm:any = null;
-    public functionName:string = '';
-    public functionId:number = 0;
-    public closeFormBtn = null;
-    @Input() boxMsg:string = null;
+    delModal:any = null;
+  	delForm:any = null;
+    functionName:string = '';
+    functionId:number = 0;
+    closeFormBtn = null;
+    @Input() appComponent:any = null;
+    boxMsg:any = null;
 
   	constructor(private delService:DeleteFunctionService = null){
-
-      this.boxMsg = app.getById('service-msg'); 
     
     }
     
   	ngOnInit(){
 
       this.delModal = app.getById('del-modal');
+      
       app.dom.delModal = this.delModal;
+
+      this.boxMsg = this.appComponent.boxMsgs;
+      
       this.delForm = app.getById('del-functionForm'); 
+      
       app.dom.delForm = this.delForm;
+      
       app.objects.delForm = this;
     
     }
@@ -71,6 +76,8 @@ export class DeleteFormComponent implements OnInit {
     }
 
   	open_form(data:any = ''):void{
+
+        this.appComponent.clean_boxMsg();
              	  
         this.functionId = data.id;
         

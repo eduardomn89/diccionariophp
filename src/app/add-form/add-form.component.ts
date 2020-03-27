@@ -14,12 +14,12 @@ declare var app:any
 
 export class AddFormComponent implements OnInit {
 
-  	public addForm:any = null;
-  	public closeFormBtn:any = null;
-    public functionName:string = '';
-    public description:string = '';
+  	addForm:any = null;
+  	closeFormBtn:any = null;
+    functionName:string = '';
+    description:string = '';
     @Input() appComponent:any = null;
-    public boxMsg:any = '';
+    boxMsg:any = '';
     
   	constructor(private afs:AddFunctionService = null){
 
@@ -69,15 +69,17 @@ export class AddFormComponent implements OnInit {
 
   	open_form():void{
 
-      app.switch_view(app.switchViews(), 'addForm');
+        this.appComponent.clean_boxMsg();
+
+        app.switch_view(app.switchViews(), 'addForm');
 
   	}
 
   	close_form():void{
 
-      app.innerHTML(this.boxMsg, '');
+        app.innerHTML(this.boxMsg, '');
 
-      app.switch_view(app.switchViews(), 'coverPage'); 
+        app.switch_view(app.switchViews(), 'coverPage'); 
 
   	}
 

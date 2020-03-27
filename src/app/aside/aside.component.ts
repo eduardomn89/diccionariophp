@@ -60,6 +60,8 @@ export class AsideComponent implements OnInit {
   		//busqueda por alfabeto
   		//parametro txt recibe la letra del alfabeto
 
+  		this.appComponent.clean_boxMsg();
+      	
       	let data:any = {'search': txt};
 
       	app.show(this.loaderImg);
