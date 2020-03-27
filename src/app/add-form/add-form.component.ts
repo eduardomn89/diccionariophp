@@ -18,7 +18,8 @@ export class AddFormComponent implements OnInit {
   	public closeFormBtn:any = null;
     public functionName:string = '';
     public description:string = '';
-    @Input() boxMsg:any = null;
+    @Input() appComponent:any = null;
+    public boxMsg:any = '';
     
   	constructor(private afs:AddFunctionService = null){
 
@@ -29,6 +30,8 @@ export class AddFormComponent implements OnInit {
       this.addForm = app.getById('add-form'); 
       
       app.dom.addForm = this.addForm;
+
+      this.boxMsg = this.appComponent.boxMsgs;
       
       app.objects.addForm = this;
 
@@ -36,8 +39,10 @@ export class AddFormComponent implements OnInit {
 
   	add_one():void{
 
+      let description = this.appComponent.encode_txt(this.description);
+
       let data:FunctionData = {'functionName': this.functionName,
-                               'description': this.description};
+                               'description': description};
 
       this.afs.add_function(data).subscribe( result => {
                                                 
