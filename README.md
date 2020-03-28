@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Funccionesphp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# diccionariofuncionesphp
+Aplicacion para registrar y buscar funciones de php. La busqueda se realiza por alfabeto o por nombre. La aplicacion esta desarrollada en angular 
+>>>>>>> ff839705ea80d99da7f7fc7dd27c3896b2f044b3
