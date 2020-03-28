@@ -75,7 +75,7 @@ export class AsideComponent implements OnInit {
 				                                                  	app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
 				                                                  	//mostrar el contenedor para resultados 
-				                                                    app.switch_view(app.switchViews(), 'functionsContainer');
+				                                                    app.switch_view(app.switchViews(), 'showResultsWrap');
 
 				                                                    //cargar resultados en el componente showRearchResults
 				                                                    app.objects.searchResults.results = result.data;

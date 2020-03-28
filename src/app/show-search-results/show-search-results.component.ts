@@ -15,7 +15,7 @@ declare var app:any;
 
 export class ShowSearchResultsComponent implements OnInit {
 	
-	  public functionsContainer:any = null;
+	  public showResultsWrap:any = null;
 	  public results:SearchResultsData[] = [{id:0, functionName:'', description:''}];
     @Input() appComponent:any = ''; 
     //paginador
@@ -30,10 +30,13 @@ export class ShowSearchResultsComponent implements OnInit {
 
   	ngOnInit() {
 
-  		  this.functionsContainer = app.getById('functions-container'); 
+  		  this.showResultsWrap = app.getById('show-resultsWrap'); 
+
+        app.dom.showResultsWrap = this.showResultsWrap;
+
         this.paginationWrap = app.getById('pagination-wrap');
-  		  app.dom.functionsContainer = this.functionsContainer;
-  		  app.objects.searchResults = this;
+  		  
+        app.objects.searchResults = this;
 
   	}
 

@@ -14,6 +14,7 @@ export class AppComponent {
     boxMsgs:any = null;
     appComponent:any = null;
     loaderImg:any = null;
+    showResults:any = null;
 
     ngOnInit(){
 

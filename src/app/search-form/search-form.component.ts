@@ -53,7 +53,7 @@ export class SearchFormComponent implements OnInit {
                                                   	  app.innerHTML(this.boxMsg, app.msg.success(result.notice));
 
                                                       //cerrar todo y mostrar la portada
-                                                      app.switch_view(app.switchViews(), 'functionsContainer');
+                                                      app.switch_view(app.switchViews(), 'showResultsWrap');
 
                                                       //cargar los resultados en el componente showSearchResults
 

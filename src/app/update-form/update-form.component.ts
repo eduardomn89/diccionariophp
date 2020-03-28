@@ -48,11 +48,9 @@ export class UpdateFormComponent implements OnInit {
 
       	this.updateService.update_function(data).subscribe( result => {
 
-                                                console.log(result);
-
                                                 if(result.status == 'done'){
 
-                                                  app.switch_view(app.switchViews(), 'functionsContainer');
+                                                  app.switch_view(app.switchViews(), 'showResultsWrap');
 
                                                   let newData:Array<SearchResultsData> = [{id:0,
                                                                                            functionName:'', 

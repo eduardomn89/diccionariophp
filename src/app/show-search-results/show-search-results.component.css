@@ -1,5 +1,8 @@
-.functions-container{
+.show-resultsWrap{
 	display: none;
+	width: 100%;	
+}
+.functions-container{	
 	width: 100%;
 }
 .function-wrap{

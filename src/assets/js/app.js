@@ -9,7 +9,7 @@ app = {
 		updateForm:null,
 		delModal:null,
 		delForm:null,
-		functionsContainer:null
+		showResultsWrap:null
 	},
 	msg:{success:function(msg = ""){
 
@@ -417,7 +417,7 @@ app = {
 		
 		return [{name:'coverPage', ref:app.dom.coverPage},
 				{name:'addForm', ref:app.dom.addForm},
-				{name:'functionsContainer', ref:app.dom.functionsContainer},
+				{name:'showResultsWrap', ref:app.dom.showResultsWrap},
 				{name:'updateFunctionForm', ref:app.dom.updateForm},
 				{name:'delModal', ref:app.dom.delModal}];
 
